@@ -4,4 +4,6 @@ require './config/environment'
 
 cli = CLI.new
 
+system("clear")
+
 cli.start

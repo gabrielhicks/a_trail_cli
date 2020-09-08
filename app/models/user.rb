@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
     has_one :story, through: :user_stories
 
     def self.login
+        system("clear")
         prompt = TTY::Prompt.new
         name = prompt.ask("Please enter your username")
         password = prompt.mask("Please enter your password")
@@ -25,6 +26,7 @@ class User < ActiveRecord::Base
     end
 
     def start_game
+        system("clear")
         prompt = TTY::Prompt.new
         selection = prompt.select("Welcome, to the 'A Trail' game! Please select an option:") do |menu|
             menu.choice name: "Start Game".colorize(:green), value: 1
